@@ -14,12 +14,15 @@
 
 		private $db;
 		private $settings;
+		protected $lang;
 		
 		public function __construct($params = []) {
 			global $Params;
 			global $Settings;
+			global $Lang;
 			$this->db = $Params['Db']['Link'];
 			$this->settings = $Settings;
+			$this->lang = $Lang;
 
 			$this->init($params);
 		}
@@ -51,16 +54,18 @@
 			$page = $Site->GetCurrentPage();
 
 			if (!$parentItemId) {
-				$this->items[$menuDb][0] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n ORDER BY IF(`Order`,-1000/`Order`,0) ASC', $menuDb);
+				$this->items[$menuDb][0] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n WHERE Lang = ?i ORDER BY IF(`Order`,-1000/`Order`,0) ASC', $menuDb, $this->lang->GetId());
 			} else {
 				if ($parentItemId != SERVICE_ITEM_ID) {
-					$this->items[$menuDb][$itemId] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n WHERE ItemId = ?i ORDER BY IF(`Order`,-1000/`Order`,0) ASC', 
+					$this->items[$menuDb][$itemId] = $items = $this->db->getAll('SELECT Id, Title, Link FROM ?n WHERE ItemId = ?i AND Lang = ?i ORDER BY IF(`Order`,-1000/`Order`,0) ASC', 
 						$menuDb, 
-						$parentItemId
+						$parentItemId,
+						$this->lang->GetId()
 					);
 				} else {
-					$this->items[$menuDb][$itemId] = $items = $this->db->getAll('SELECT Id, Title, CONCAT("/", Code, "/") AS Link FROM ?n ORDER BY IF(`Order`,-1000/`Order`,0) ASC', 
-						'services'
+					$this->items[$menuDb][$itemId] = $items = $this->db->getAll('SELECT Id, Title, CONCAT("/", Code, "/") AS Link FROM ?n WHERE Lang = ?i ORDER BY IF(`Order`,-1000/`Order`,0) ASC', 
+						'services',
+						$this->lang->GetId()
 					);
 				}
 			}
