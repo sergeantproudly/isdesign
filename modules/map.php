@@ -61,7 +61,7 @@ class map extends krn_abstract{
 
 		// projects
 		$tree['projects'] = $static_pages['projects'];
-		$items = $this->db->getAll('SELECT Title, Code FROM cat_projects WHERE Lang = ?i ORDER BY IF(`Order`,-100/`Order`,0)', $this->lang->GetId());
+		$items = $this->db->getAll('SELECT p.Title, p.Code, c.Code AS Category FROM cat_projects p LEFT JOIN cat_categories c ON p.CategoryId = c.Id WHERE p.Lang = ?i ORDER BY IF(p.`Order`,-100/p.`Order`,0)', $this->lang->GetId());
 		foreach ($items as $item) {
 			$tree['projects']['pages'][$item['Code']] = $item;
 		}
@@ -71,7 +71,11 @@ class map extends krn_abstract{
 			$sub = '';
 			if ($item['pages']) {
 				foreach ($item['pages'] as $sub_code => $sub_item) {
-					$sub .= '<li><a href="/'.$code.'/'.$sub_code.'/">' . $sub_item['Title'] . '</a></li>';
+					if ($code != 'projects') {
+						$sub .= '<li><a href="/'.$code.'/'.$sub_code.'/">' . $sub_item['Title'] . '</a></li>';
+					} else {
+						$sub .= '<li><a href="/'.$code.'/'.$sub_item['Category'].'/'.$sub_code.'/">' . $sub_item['Title'] . '</a></li>';
+					}					
 				}
 				$sub = '<ul>' . $sub . '</ul>';
 			}
