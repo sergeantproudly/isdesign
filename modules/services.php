@@ -15,8 +15,8 @@ class services extends krn_abstract{
 					.'p.Id AS PageId, p.Content, p.Header, p.SeoTitle, p.SeoKeywords, p.SeoDescription, p.TemplateCode '
 					.'FROM services s '
 					.'LEFT JOIN static_pages p ON s.Code = p.Code '
-					.'WHERE s.Code = ?s AND s.Lang = ?i';
-			$this->service = $this->db->getRow($query, $this->serviceCode, $this->lang->GetId());
+					.'WHERE s.Code = ?s AND s.Lang = ?i AND p.Lang = ?i';
+			$this->service = $this->db->getRow($query, $this->serviceCode, $this->lang->GetId(), $this->lang->GetId());
 			if (!$this->service) {
 				$this->notFound = true;
 			}

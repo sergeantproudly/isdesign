@@ -52,7 +52,7 @@ function initElements(element) {
            showMonthAfterYear: false,
            yearSuffix: ''
     };
-    $.datepicker.setDefaults($.datepicker.regional['ru']);
+    //$.datepicker.setDefaults($.datepicker.regional['ru']);
 
 	$element.find('select').each(function(i, select) {
 		// editable select
