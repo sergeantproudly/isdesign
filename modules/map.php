@@ -53,11 +53,13 @@ class map extends krn_abstract{
 		}
 
 		// statues
+		/*
 		$tree['statues'] = $static_pages['statues'];
 		$items = $this->db->getAll('SELECT Title, Code FROM statues WHERE Lang = ?i ORDER BY Date DESC', $this->lang->GetId());
 		foreach ($items as $item) {
 			$tree['statues']['pages'][$item['Code']] = $item;
 		}
+		*/
 
 		// projects
 		$tree['projects'] = $static_pages['projects'];
