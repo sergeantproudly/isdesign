@@ -423,8 +423,7 @@ header {
         }
 
         .language-wrap {
-            /*display: flex;*/
-            display: none;
+            display: flex;
             margin-left: 10px;
 
             @media (max-width: $adaptive-width-desktop-small) {
