@@ -51,7 +51,7 @@ class Modal {
 
 	public function ModalFeedback() {
 		global $Params;
-		$form = $this->db->getRow('SELECT * FROM `forms` WHERE Code = ?s', 'modal-feedback');
+		$form = $this->db->getRow('SELECT * FROM `forms` WHERE Code = ?s AND Lang = ?i', 'modal-feedback', $this->lang->GetId());
 		
 		$template = strtr($this->template, array(
 			'<%TITLE%>'			=> $this->params['Title'] ?: $form['Title'],
@@ -66,7 +66,7 @@ class Modal {
 
 	public function ModalConsultation() {
 		global $Params;
-		$form = $this->db->getRow('SELECT * FROM `forms` WHERE Code = ?s', 'modal-consultation');
+		$form = $this->db->getRow('SELECT * FROM `forms` WHERE Code = ?s AND Lang = ?i', 'modal-consultation', $this->lang->GetId());
 		
 		$template = strtr($this->template, array(
 			'<%TITLE%>'			=> $this->params['Title'] ?: $form['Title'],
@@ -81,7 +81,7 @@ class Modal {
 
 	public function ModalCalculation() {
 		global $Params;
-		$form = $this->db->getRow('SELECT * FROM `forms` WHERE Code = ?s', 'modal-calculation');
+		$form = $this->db->getRow('SELECT * FROM `forms` WHERE Code = ?s AND Lang = ?i', 'modal-calculation', $this->lang->GetId());
 		
 		$template = strtr($this->template, array(
 			'<%TITLE%>'			=> $this->params['Title'] ?: $form['Title'],
@@ -97,7 +97,7 @@ class Modal {
 
 	public function ModalRequest() {
 		global $Params;
-		$form = $this->db->getRow('SELECT * FROM `forms` WHERE Code = ?s', 'modal-request');
+		$form = $this->db->getRow('SELECT * FROM `forms` WHERE Code = ?s AND Lang = ?i', 'modal-request', $this->lang->GetId());
 		
 		$template = strtr($this->template, array(
 			'<%TITLE%>'			=> $this->params['Title'] ?: $form['Title'],
