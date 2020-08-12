@@ -56,7 +56,7 @@ class ajax extends krn_abstract{
 		// основывается на сверке user agent-ов
 		if ($capcha == $_SERVER['HTTP_USER_AGENT']) {
 			if ($tel) {				
-				$form = $this->db->getRow('SELECT Title, SuccessHeader, Success FROM forms WHERE Code=?s', $code);				
+				$form = $this->db->getRow('SELECT Title, SuccessHeader, Success FROM forms WHERE Code=?s AND Lang = ?i', $code, $this->lang->GetId());				
 				$request = '';
 				if ($name) $request .= "Имя: $name\r\n";
 				if ($email) $request .= "E-mail: $email\r\n";
