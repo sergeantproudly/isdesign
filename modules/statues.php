@@ -14,10 +14,10 @@ class statues extends krn_abstract {
 
 		if ($_LEVEL[2] && !preg_match('/^[\d]+$/', $_LEVEL[2])) {
 			$this->statueCode = $_LEVEL[2];
-			$query = 'SELECT s.Title, s.Code, s.Date, s.ImageFull, s.Text '
+			$query = 'SELECT s.Title, s.Code, s.Date, s.ImageFull, s.Text, s.Header, s.SeoTitle, s.SeoKeywords, s.SeoDescription '
 					.'FROM statues s '
-					.'WHERE s.Code = ?s';
-			$this->statue = $this->db->getRow($query, $this->statueCode);
+					.'WHERE s.Code = ?s AND Lang = ?i';
+			$this->statue = $this->db->getRow($query, $this->statueCode, $this->lang->GetId());
 			if (!$this->statue) {
 				$this->notFound = true;
 			}
