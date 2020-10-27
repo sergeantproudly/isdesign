@@ -40,9 +40,10 @@ class main extends krn_abstract{
 		$element = LoadTemplate('slider_el');
 		$content = '';
 
-		$slider = $this->db->getAll('SELECT Image, Link, Text FROM slider WHERE Image <> "" AND Lang = ?i ORDER BY IF(`Order`, -1000/`Order`, 0)', $this->lang->GetId());
+		$slider = $this->db->getAll('SELECT Image, ImageMob, Link, Text FROM slider WHERE Image <> "" AND Lang = ?i ORDER BY IF(`Order`, -1000/`Order`, 0)', $this->lang->GetId());
 		foreach ($slider as $counter => $slide) {
 			$slide['Class'] = $counter == 0 ? ' active' : '';
+			$slide['Background'] = 'data-background-image="' . $slide['Image'] . '" data-background-mob-image="' . $slide['ImageMob'] . '"';
 			$content .= SetAtribs($element, $slide);
 		}
 

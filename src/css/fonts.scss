@@ -8,6 +8,7 @@
       url('../fonts/Geometria.svg#Geometria') format('svg');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }*/
 
 @font-face {
@@ -20,7 +21,7 @@
        url('../fonts/geometria-webfont.svg#geometriaregular') format('svg');
   font-weight: 400;
   font-style: normal;
-
+  font-display: swap;
 }
 
 
@@ -35,7 +36,7 @@
        url('../fonts/geometria-medium-webfont.svg#geometriamedium') format('svg');
   font-weight: 500;
   font-style: normal;
-
+font-display: swap;
 }
 
 
@@ -49,7 +50,7 @@
        url('../fonts/geometria-bold-webfont.svg#geometriabold') format('svg');
   font-weight: 600;
   font-style: normal;
-
+font-display: swap;
 }
 
 
@@ -64,7 +65,7 @@
        url('../fonts/geometria-light-webfont.svg#geometrialight') format('svg');
   font-weight: 300;
   font-style: normal;
-
+font-display: swap;
 }
 
 
@@ -78,5 +79,5 @@
        url('../fonts/raleway-medium-webfont.svg#ralewaymedium') format('svg');
   font-weight: 500;
   font-style: normal;
-
+font-display: swap;
 }
