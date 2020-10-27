@@ -1,9 +1,9 @@
 <?php
 
    $Config['Db']['Host']   = 'localhost';
-   $Config['Db']['Login']  = 'inthehood_isdesign';
-   $Config['Db']['Pswd']   = 'isdesign';
-   $Config['Db']['DbName'] = 'inthehood_isdesign';  
+   $Config['Db']['Login']  = 'isdesignnew';
+   $Config['Db']['Pswd']   = 'al190skLawess';
+   $Config['Db']['DbName'] = 'isdesignnew';  
       
    $Config['Site']['Title']      = 'ISDesign group - архитектурно-строительная компания';
    $Config['Site']['Email']      = '';
