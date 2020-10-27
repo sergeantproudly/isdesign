@@ -1,15 +1,15 @@
 <?php
 
    $Config['Db']['Host']   = 'localhost';
-   $Config['Db']['Login']  = 'isdesign';
+   $Config['Db']['Login']  = 'inthehood_isdesign';
    $Config['Db']['Pswd']   = 'isdesign';
-   $Config['Db']['DbName'] = 'isdesign_db'; 
+   $Config['Db']['DbName'] = 'inthehood_isdesign'; 
    	
    $Config['Site']['Title']      = 'ISDesign group - архитектурно-строительная компания';
    $Config['Site']['Email']      = '';
    $Config['Site']['Keywords']      = ''; 
    $Config['Site']['Description']   = '';
-   $Config['Site']['Url']        = 'https://isdesigngroup.ru';
+   $Config['Site']['Url']        = 'https://isdesignhome.com';
       
    $Config['Smtp']['Server']  = 'smtp.yandex.ru';
    $Config['Smtp']['Port']    = '465';
